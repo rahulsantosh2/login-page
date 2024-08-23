@@ -1,6 +1,6 @@
 # Pod template
 apiVersion: v1
-kind: pod
+kind: Pod
 metadata:
   name: p1
 spec:
