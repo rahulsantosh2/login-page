@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: multipod
+  name: multipod_pass
 spec:
   containers:
   - name: c1
