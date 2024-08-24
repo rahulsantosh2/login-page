@@ -1,0 +1,15 @@
+# Pod template multi fail concept
+apiVersion: v1
+kind: Pod
+metadata:
+  name: multipod
+spec:
+  containers:
+  - name: c1
+    image: nginx
+    ports:
+    - containerPort: 80
+  - name: c2
+    image: rahulsantosh29/lms-be
+    ports:
+    - containerPort: 8080
