@@ -1,4 +1,4 @@
-# Pod template
+# Pod template multi fail concept
 apiVersion: v1
 kind: Pod
 metadata:
@@ -9,4 +9,8 @@ spec:
     image: nginx
     ports:
     - containerPort: 80
-
+  containers:
+  - name: c2
+    image: nginx
+    ports:
+    - containerPort: 80
