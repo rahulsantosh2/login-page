@@ -1,4 +1,4 @@
-# Pod template multi fail concept
+# Pod template multi pod
 apiVersion: v1
 kind: Pod
 metadata:
