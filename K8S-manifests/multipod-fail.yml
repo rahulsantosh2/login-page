@@ -9,7 +9,6 @@ spec:
     image: nginx
     ports:
     - containerPort: 80
-  containers:
   - name: c2
     image: nginx
     ports:
