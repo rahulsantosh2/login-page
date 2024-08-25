@@ -1,9 +1,10 @@
-#Deployment template
+# Replicaset template
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx_dep
+  name: nginx
 spec:
+  # 3 Pods should exist at all times.
   replicas: 1
   selector:
     matchLabels:
@@ -17,4 +18,4 @@ spec:
       - name: nginx
         image: nginx
         ports:
-        - containerport: 80
+        - containerPort: 80
