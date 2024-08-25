@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: deployment
+  name: nginx
 spec:
   # 1 Pod should exist at all times.
   replicas: 1
