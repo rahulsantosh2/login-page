@@ -1,0 +1,21 @@
+#deployment template
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment
+spec:
+  # 1 Pod should exist at all times.
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerport: 80
