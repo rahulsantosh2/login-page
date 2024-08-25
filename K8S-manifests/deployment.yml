@@ -1,8 +1,8 @@
 #deployment template
-apiVersion: apps/v2
+apiVersion: apps/V1
 kind: Deployment
 metadata:
-  name: nginx
+  name: nginxdep
 spec:
   # 1 Pod should exist at all times.
   replicas: 1
