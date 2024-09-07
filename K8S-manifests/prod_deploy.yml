@@ -1,0 +1,21 @@
+# Replicaset template
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: login
+spec:
+  # 2 Pods should exist at all times - across nodes
+  replicas: 2
+  selector:
+    matchLabels:
+      app: login
+  template:
+    metadata:
+      labels:
+        app: login
+    spec:
+      containers:
+      - name: login
+        image: rahulsantosh29/login-page
+        ports:
+        - containerPort: 80
