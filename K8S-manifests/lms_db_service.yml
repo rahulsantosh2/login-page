@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: psotgres-cluster-ip-service
 spec:
-  type: ClusterIp
+  type: ClusterIP
   selector: 
     component: postgres
   ports:
