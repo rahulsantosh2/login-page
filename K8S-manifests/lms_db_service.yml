@@ -4,8 +4,9 @@ metadata:
   name: postgres-cluster-ip-service
 spec:
   type: ClusterIP
-  selector: 
-    app: postgres
+  selector:
+    app: postgres  # Adjust this to match the pod's labels
   ports:
     - port: 5432
       targetPort: 5432
+
