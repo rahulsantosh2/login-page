@@ -178,3 +178,45 @@ resource "aws_vpc_security_group_egress_rule" "web-sg-all" {
   cidr_ipv4         = "0.0.0.0/0"
   ip_protocol       = "-1" # semantically equivalent to all ports
 }
+
+
+
+#api security groups
+resource "aws_security_group" "api-sg" {
+  name        = "api-sg"
+  description = "Allow Web Traffic"
+  vpc_id      = aws_vpc.test.id
+
+  tags = {
+    Name = "api-sg"
+  }
+}
+
+
+#api sg rules - ingress rule - ssh
+resource "aws_vpc_security_group_ingress_rule" "api-sg-ssh" {
+  security_group_id = aws_security_group.api-sg.id
+  cidr_ipv4         = "0.0.0.0/0"
+  from_port         = 22
+  ip_protocol       = "tcp"
+  to_port           = 22
+}
+
+#api sg rules - ingress rule - http
+resource "aws_vpc_security_group_ingress_rule" "api-sg-http" {
+  security_group_id = aws_security_group.api-sg.id
+  cidr_ipv4          = "0.0.0.0/0"
+  from_port         = 8080
+  ip_protocol       = "tcp"
+  to_port           = 8080
+}
+
+#api sg rules - egress rule - all
+resource "aws_vpc_security_group_egress_rule" "api-sg-all" {
+  security_group_id = aws_security_group.api-sg.id
+  cidr_ipv4         = "0.0.0.0/0"
+  ip_protocol       = "-1" # semantically equivalent to all ports
+}
+
+
+
