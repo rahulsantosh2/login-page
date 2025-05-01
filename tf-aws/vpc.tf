@@ -257,3 +257,22 @@ resource "aws_vpc_security_group_egress_rule" "db-sg-all" {
   ip_protocol       = "-1" # semantically equivalent to all ports
 }
 
+
+
+
+
+
+
+#aws ec2 web instance server
+resource "aws_instance" "test-server" {
+  ami           = "ami-0f9de6e2d2f067fca"
+  instance_type = "t2.micro"
+  key_name      = "test_key.pem"
+  subnet_id     = aws_subnet.test-web-sn.id
+  vpc_security_group_ids = [aws_security_group.web-sg.id]
+
+  tags = {
+    Name = "test-server"
+  }
+}
+
