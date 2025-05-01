@@ -41,3 +41,12 @@ resource "aws_subnet" "test-db-sn" {
     Name = "test-db-subnet"
   }
 }
+
+#internet gateway
+resource "aws_internet_gateway" "test-igw" {
+  vpc_id = aws_vpc.test.id
+
+  tags = {
+    Name = "test-igw"
+  }
+}
