@@ -12,6 +12,7 @@ resource "aws_vpc" "test" {
 resource "aws_subnet" "test-web-sn" {
   vpc_id     = aws_vpc.test.id
   cidr_block = "10.0.1.0/24"
+  map_public_ip_on_launch = "true"
 
   tags = {
     Name = "test-web-subnet"
