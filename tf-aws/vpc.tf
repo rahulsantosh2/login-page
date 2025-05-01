@@ -50,3 +50,17 @@ resource "aws_internet_gateway" "test-igw" {
     Name = "test-igw"
   }
 }
+
+#route-table
+resource "aws_route_table" "test-pub-rt" {
+  vpc_id = aws_vpc.test.id
+
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.test-igw.id
+  }
+
+  tags = {
+    Name = "test-public-rt"
+  }
+}
