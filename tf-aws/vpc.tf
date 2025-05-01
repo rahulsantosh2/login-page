@@ -30,3 +30,14 @@ resource "aws_subnet" "test-api-sn" {
     Name = "test-api-subnet"
   }
 }
+
+#db subnet
+resource "aws_subnet" "test-db-sn" {
+  vpc_id     = aws_vpc.test.id
+  cidr_block = "10.0.3.0/24"
+  map_public_ip_on_launch = "false"
+
+  tags = {
+    Name = "test-db-subnet"
+  }
+}
