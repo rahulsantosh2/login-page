@@ -64,3 +64,9 @@ resource "aws_route_table" "test-pub-rt" {
     Name = "test-public-rt"
   }
 }
+
+#web subnet route table association
+resource "aws_route_table_association" "test-web-assc" {
+  subnet_id      = aws_subnet.test-web-sn.id
+  route_table_id = aws_route_table.test-pub-rt.id
+}
