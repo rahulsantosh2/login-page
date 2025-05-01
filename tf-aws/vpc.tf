@@ -152,3 +152,29 @@ resource "aws_security_group" "web-sg" {
     Name = "web-sg"
   }
 }
+
+
+#web sg rules - ingress rule - ssh
+resource "aws_vpc_security_group_ingress_rule" "web-sg-ssh" {
+  security_group_id = aws_security_group.web-sg.id
+  cidr_ipv4         = 0.0.0.0/0
+  from_port         = 22
+  ip_protocol       = "tcp"
+  to_port           = 22
+}
+
+#web sg rules - ingress rule - http
+resource "aws_vpc_security_group_ingress_rule" "web-sg-http" {
+  security_group_id = aws_security_group.web-sg.id
+  cidr_ipv4          = 0.0.0.0/0
+  from_port         = 80
+  ip_protocol       = "tcp"
+  to_port           = 80
+}
+
+#web sg rules - egress rule - all
+resource "aws_vpc_security_group_egress_rule" "web-sg-all" {
+  security_group_id = aws_security_group.web-sg.id
+  cidr_ipv4         = "0.0.0.0/0"
+  ip_protocol       = "-1" # semantically equivalent to all ports
+}
