@@ -267,7 +267,7 @@ resource "aws_vpc_security_group_egress_rule" "db-sg-all" {
 resource "aws_instance" "test-server" {
   ami           = "ami-0f9de6e2d2f067fca"
   instance_type = "t2.micro"
-  key_name      = "test_key.pem"
+  key_name      = "test_key"
   subnet_id     = aws_subnet.test-web-sn.id
   vpc_security_group_ids = [aws_security_group.web-sg.id]
 
