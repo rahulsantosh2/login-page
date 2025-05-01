@@ -120,3 +120,23 @@ resource "aws_network_acl" "test-nacl" {
     Name = "test-nacl"
   }
 }
+
+#nacl web association
+resource "aws_network_acl_association" "test-nacl-web-assc" {
+  network_acl_id = aws_network_acl.test-nacl.id
+  subnet_id      = aws_subnet.test-web-sn.id
+}
+
+
+#nacl api association
+resource "aws_network_acl_association" "test-nacl-api-assc" {
+  network_acl_id = aws_network_acl.test-nacl.id
+  subnet_id      = aws_subnet.test-api-sn.id
+}
+
+
+#nacl db association
+resource "aws_network_acl_association" "test-nacl-db-assc" {
+  network_acl_id = aws_network_acl.test-nacl.id
+  subnet_id      = aws_subnet.test-db-sn.id
+}
