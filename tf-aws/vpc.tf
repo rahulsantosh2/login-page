@@ -86,3 +86,9 @@ resource "aws_route_table" "test-pvt-rt" {
     Name = "test-pvt-rt"
   }
 }
+
+#db subnet route table association
+resource "aws_route_table_association" "test-db-assc" {
+  subnet_id      = aws_subnet.test-db-sn.id
+  route_table_id = aws_route_table.test-pvt-rt.id
+}
