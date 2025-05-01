@@ -261,8 +261,6 @@ resource "aws_vpc_security_group_egress_rule" "db-sg-all" {
 
 
 
-
-
 #aws ec2 web instance server
 resource "aws_instance" "test-server" {
   ami           = "ami-0f9de6e2d2f067fca"
