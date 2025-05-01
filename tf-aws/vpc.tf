@@ -76,3 +76,13 @@ resource "aws_route_table_association" "test-api-assc" {
   subnet_id      = aws_subnet.test-api-sn.id
   route_table_id = aws_route_table.test-pub-rt.id
 }
+
+
+#private route-table
+resource "aws_route_table" "test-pvt-rt" {
+  vpc_id = aws_vpc.test.id
+
+  tags = {
+    Name = "test-pvt-rt"
+  }
+}
